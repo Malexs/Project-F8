@@ -1,0 +1,272 @@
+﻿<Window x:Name="EntryWindow" x:Class="Project_F8.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Project F8" Height="376" Width="230" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Visibility="Visible" Padding="0" Closing="EntryWindow_Closing">
+    <Grid x:Name="grid" Margin="0,10,-321,-343" Width="545" HorizontalAlignment="Left" Height="680">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="171*"/>
+            <RowDefinition Height="169*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="entryGrid" HorizontalAlignment="Left" Height="306" Margin="0,10,0,0" VerticalAlignment="Top" Width="217" RenderTransformOrigin="0.5,0.5">
+            <Button x:Name="logInButton" Content="Log in" HorizontalAlignment="Left" Height="30" Margin="41,166,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.5,0.5" TabIndex="3" IsDefault="True" Click="logInButton_Click">
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="Button.Click">
+                        <BeginStoryboard>
+                            <Storyboard x:Name="entryToForumMove">
+                                <ThicknessAnimationUsingKeyFrames
+                                Storyboard.TargetName="grid"
+                                Storyboard.TargetProperty="Margin"
+                                Duration="0:0:0.7">
+                                    <LinearThicknessKeyFrame Value="0,-321,-333,0" KeyTime="100%" />
+                                </ThicknessAnimationUsingKeyFrames>
+                                <DoubleAnimation
+                                Storyboard.TargetName="EntryWindow"
+                                Storyboard.TargetProperty="Width"
+                                Duration="0:0:0.7" From="230" To="545">
+                                </DoubleAnimation>
+                                <DoubleAnimation
+                                    Storyboard.TargetName="forumGrid"
+                                    Storyboard.TargetProperty="Opacity" From="0" To="1"
+                                    Duration="0:0:0.8"/>
+                                <DoubleAnimation
+                                    Storyboard.TargetName="entryGrid"
+                                    Storyboard.TargetProperty="Opacity" From="1" To="0"
+                                    Duration="0:0:0.4"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
+            <TextBox x:Name="loginBox" HorizontalAlignment="Left" Height="25" Margin="41,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TabIndex="1" FontSize="15" Grid.IsSharedSizeScope="True" UndoLimit="10" PreviewTextInput="loginBox_PreviewTextInput"/>
+            <Label Content="Login" HorizontalAlignment="Left" Margin="41,61,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.78,0.211" Grid.IsSharedSizeScope="True" Height="26" Width="39"/>
+            <Button x:Name="signUpButton" Content="Sign up" HorizontalAlignment="Left" Height="30" Margin="41,201,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.5,0.5" TabIndex="4" Click="signUpButton_Click">
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="Button.Click">
+                        <BeginStoryboard>
+                            <Storyboard x:Name="entryToRegMove">
+                                <ThicknessAnimationUsingKeyFrames
+                                Storyboard.TargetName="grid"
+                                Storyboard.TargetProperty="Margin"
+                                Duration="0:0:0.8">
+                                    <LinearThicknessKeyFrame Value="-135,10,-186,-343" KeyTime="50%" />
+                                    <LinearThicknessKeyFrame Value="-215,10,-106,-343" KeyTime="100%" />
+                                </ThicknessAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames
+                                Storyboard.TargetName="EntryWindow"
+                                Storyboard.TargetProperty="Width"
+                                Duration="0:0:0.8">
+                                    <LinearDoubleKeyFrame Value="297" KeyTime="30%" />
+                                    <LinearDoubleKeyFrame Value="337" KeyTime="100%" />
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimation
+                                    Storyboard.TargetName="regGrid"
+                                    Storyboard.TargetProperty="Opacity" From="0" To="1"
+                                    Duration="0:0:0.8"/>
+                                <DoubleAnimation
+                                    Storyboard.TargetName="entryGrid"
+                                    Storyboard.TargetProperty="Opacity" From="1" To="0"
+                                    Duration="0:0:0.4"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
+            <PasswordBox x:Name="passBox" HorizontalAlignment="Left" Margin="41,133,0,0" VerticalAlignment="Top" Width="120" TabIndex="2" FontSize="15" Grid.IsSharedSizeScope="True" Height="25" PreviewTextInput="loginBox_PreviewTextInput"/>
+            <Label Content="Password" HorizontalAlignment="Left" Margin="41,107,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.78,0.211" Grid.IsSharedSizeScope="True" Height="26" Width="60"/>
+            <Label Content="Project F8" HorizontalAlignment="Left" Margin="68,27,0,0" VerticalAlignment="Top" Height="34" Width="123" FontSize="24" FontFamily="Stylo"/>
+            <Label Content="Welcome to" HorizontalAlignment="Left" VerticalAlignment="Top" Height="39" Width="141" FontSize="20" Margin="20,0,0,0"/>
+            <TextBox x:Name="logBox" HorizontalAlignment="Left" Height="58" Margin="29,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" TabIndex="0" Focusable="False" BorderThickness="0" Foreground="Red"/>
+            <Image x:Name="waitingImage" HorizontalAlignment="Left" Height="78" VerticalAlignment="Top" Width="78" Source="C:\Project F8\Client App\Project F8\Project F8\bin\Debug\350.gif" RenderTransformOrigin="0.5,0.5" Margin="68,236,0,-8" Opacity="0.01">
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="AnimatedSpin" Angle="0" />
+                </Image.RenderTransform>
+                <Image.Triggers>
+                    <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="AnimatedSpin"
+            						Storyboard.TargetProperty="Angle"
+            						To="360" Duration="0:0:2" RepeatBehavior="Forever"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Image.Triggers>
+            </Image>
+        </Grid>
+
+        <Grid x:Name="regGrid" HorizontalAlignment="Left" Height="324" Margin="231,-5,0,0" VerticalAlignment="Top" Width="303" Opacity="0" IsEnabled="False">
+            <TextBox x:Name="newLoginBox" HorizontalAlignment="Left" Height="23" Margin="9,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TabIndex="1" PreviewTextInput="loginBox_PreviewTextInput"/>
+            <Label Content="Registration" HorizontalAlignment="Left" VerticalAlignment="Top" Height="39" Width="141" FontSize="20" Margin="9,13,0,0"/>
+            <Label Content="Login" HorizontalAlignment="Left" Margin="9,57,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.78,0.211" Grid.IsSharedSizeScope="True" Height="26" Width="39"/>
+            <Label Content="Password" HorizontalAlignment="Left" Margin="156,57,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.78,0.211" Grid.IsSharedSizeScope="True" Height="26" Width="60"/>
+            <PasswordBox x:Name="newPassBox" HorizontalAlignment="Left" Margin="156,81,0,0" VerticalAlignment="Top" Width="120" TabIndex="2" FontSize="15" Grid.IsSharedSizeScope="True" Height="25" LostFocus="newPassBox_LostFocus" PreviewTextInput="loginBox_PreviewTextInput"/>
+            <Label Content="Password. Again" HorizontalAlignment="Left" Margin="156,106,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.78,0.211" Grid.IsSharedSizeScope="True" Height="26" Width="120"/>
+            <PasswordBox x:Name="repassBox" HorizontalAlignment="Left" Margin="156,132,0,0" VerticalAlignment="Top" Width="120" TabIndex="3" FontSize="15" Grid.IsSharedSizeScope="True" Height="25" LostFocus="repassBox_LostFocus" PreviewTextInput="loginBox_PreviewTextInput"/>
+            <Label Content="E-mail" HorizontalAlignment="Left" Margin="9,106,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.78,0.211" Grid.IsSharedSizeScope="True" Height="26" Width="60"/>
+            <TextBox x:Name="mailBox" HorizontalAlignment="Left" Height="25" Margin="9,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TabIndex="4" PreviewTextInput="loginBox_PreviewTextInput"/>
+            <Label Content="Country" HorizontalAlignment="Left" Margin="9,157,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.78,0.211" Grid.IsSharedSizeScope="True" Height="26" Width="60"/>
+            <TextBox x:Name="countryBox" HorizontalAlignment="Left" Height="25" Margin="9,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TabIndex="5" PreviewTextInput="loginBox_PreviewTextInput"/>
+            <Label Content="City" HorizontalAlignment="Left" Margin="156,157,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.78,0.211" Grid.IsSharedSizeScope="True" Height="26" Width="60"/>
+            <TextBox x:Name="cityBox" HorizontalAlignment="Left" Height="25" Margin="156,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TabIndex="6" PreviewTextInput="loginBox_PreviewTextInput"/>
+            <Label Content="URL" HorizontalAlignment="Left" Margin="9,210,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.78,0.211" Grid.IsSharedSizeScope="True" Height="26" Width="60"/>
+            <TextBox x:Name="URLBox" HorizontalAlignment="Left" Height="25" Margin="9,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TabIndex="7" PreviewTextInput="loginBox_PreviewTextInput"/>
+            <Button x:Name="realSignUpEndButton" Content="Sign up" HorizontalAlignment="Left" Height="25" Margin="156,236,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.5,0.5" TabIndex="8" Click="signUpEndButton_Click" PreviewTextInput="loginBox_PreviewTextInput">
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="Button.Click">
+                        <BeginStoryboard>
+                            <Storyboard x:Name="regToEntryMove">
+                                <ThicknessAnimationUsingKeyFrames
+                                Storyboard.TargetName="grid"
+                                Storyboard.TargetProperty="Margin"
+                                Duration="0:0:0.8">
+                                    <LinearThicknessKeyFrame Value="-80,10,-241,-343" KeyTime="50%" />
+                                    <LinearThicknessKeyFrame Value="0,10,-321,-343" KeyTime="100%" />
+                                </ThicknessAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames
+                                Storyboard.TargetName="EntryWindow"
+                                Storyboard.TargetProperty="Width"
+                                Duration="0:0:0.8">
+                                    <LinearDoubleKeyFrame Value="270" KeyTime="30%" />
+                                    <LinearDoubleKeyFrame Value="230" KeyTime="100%" />
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimation
+                                    Storyboard.TargetName="regGrid"
+                                    Storyboard.TargetProperty="Opacity" From="1" To="0"
+                                    Duration="0:0:0.4"/>
+                                <DoubleAnimation
+                                    Storyboard.TargetName="entryGrid"
+                                    Storyboard.TargetProperty="Opacity" From="0" To="1"
+                                    Duration="0:0:0.8"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
+            <TextBox x:Name="regLogLabel" HorizontalAlignment="Left" Height="45" Margin="10,279,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="119" BorderThickness="0" Foreground="#FFF10B0B" TabIndex="0" Focusable="False" FontSize="10"/>
+            <Button x:Name="returnButton" Content="Return" HorizontalAlignment="Left" Height="25" Margin="156,277,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.5,0.5" TabIndex="8" Click="returnButton_Click" IsDefault="True"/>
+        </Grid>
+
+        <Grid x:Name="forumGrid" HorizontalAlignment="Left" Height="338" Margin="10,332,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="525" IsEnabled="False">
+            <Button x:Name="logOutButton" Content="Log out" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="10,281,0,0" Height="30" Click="logOutButton_Click">
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="ButtonBase.Click">
+                        <BeginStoryboard>
+                            <Storyboard x:Name="forumToLogin">
+                                <ThicknessAnimationUsingKeyFrames
+        							Storyboard.TargetName="grid"
+        							Storyboard.TargetProperty="Margin"
+        							Duration="0:0:0.7">
+                                    <LinearThicknessKeyFrame Value="0,10,-321,-343" KeyTime="100%" />
+                                </ThicknessAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames
+        							Storyboard.TargetName="EntryWindow"
+        							Storyboard.TargetProperty="Width"
+        							Duration="0:0:0.8">
+                                    <LinearDoubleKeyFrame Value="230" KeyTime="100%" />
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimation
+                                    Storyboard.TargetName="forumGrid"
+                                    Storyboard.TargetProperty="Opacity" From="1" To="0"
+                                    Duration="0:0:0.4"/>
+                                <DoubleAnimation
+                                    Storyboard.TargetName="entryGrid"
+                                    Storyboard.TargetProperty="Opacity" From="0" To="1"
+                                    Duration="0:0:0.8"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
+            <Separator HorizontalAlignment="Left" Height="18" Margin="-6,160,0,0" VerticalAlignment="Top" Width="300" RenderTransformOrigin="0.5,0.5">
+                <Separator.Effect>
+                    <DropShadowEffect BlurRadius="3" ShadowDepth="2" Color="#FF211D1D"/>
+                </Separator.Effect>
+                <Separator.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Separator.RenderTransform>
+            </Separator>
+            <Label Content="Login:" HorizontalAlignment="Left" Margin="0,27,0,0" VerticalAlignment="Top" Width="42"/>
+            <Label x:Name="loginLabel" Content="" HorizontalAlignment="Left" Margin="47,27,0,0" VerticalAlignment="Top" Width="83"/>
+            <Label Content="Status:" HorizontalAlignment="Left" Margin="0,53,0,0" VerticalAlignment="Top" Width="42"/>
+            <Label x:Name="statusLabel" Content="" HorizontalAlignment="Left" Margin="47,53,0,0" VerticalAlignment="Top" Width="83"/>
+            <ToolBar x:Name="toolBar" HorizontalAlignment="Left" Height="27" Margin="-13,-12,0,0" VerticalAlignment="Top" Width="535">
+                <Button x:Name="addDialogButton" Content="Open Dialog" Click="addDialogButton_Click"></Button>
+                <Separator/>
+                <Button x:Name="OpenDialogWindowButton" Content="Dialog Window" Click="openialogButton_Click"></Button>
+            </ToolBar>
+            <Grid x:Name="roomSelectGrid" HorizontalAlignment="Left" Height="308" Margin="153,15,0,0" VerticalAlignment="Top" Width="362">
+                <ListBox x:Name="roomBox" HorizontalAlignment="Left" Height="254" Margin="23,10,0,0" VerticalAlignment="Top" Width="249" MouseDoubleClick="roomBox_MouseDoubleClick" SelectedIndex="10">
+                    <ListBox.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem x:Name="addItem" Header="Add" Click="AddMenuItem_Click" IsEnabled="False" />
+                            <MenuItem x:Name="deleteItem" Header="Delete" IsEnabled="False"/>
+                            <MenuItem x:Name="changeItem" Header="Change" IsEnabled="False"/>
+                            <Separator/>
+                            <MenuItem Header="Information" Click="InfoMenuItem_Click"/>
+                        </ContextMenu>
+                    </ListBox.ContextMenu>
+                </ListBox>
+                <Button x:Name="backPathButton" Content="&lt;--" HorizontalAlignment="Left" Height="17" Margin="277,247,0,0" VerticalAlignment="Top" Width="64" Click="backPathButton_Click"/>
+                <TextBox x:Name="pathBox" HorizontalAlignment="Left" Height="22" Margin="23,269,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" Text="./" IsEnabled="False"/>
+            </Grid>
+            <Button x:Name="friendsShowButton" Content="Friends" HorizontalAlignment="Left" Margin="10,104,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="friendsShowButton_Click">
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="Button.Click">
+                        <BeginStoryboard>
+                            <Storyboard x:Name="showFriends">
+                                <DoubleAnimation
+                                    Storyboard.TargetName="roomSelectGrid"
+                                    Storyboard.TargetProperty="Opacity" From="1" To="0"
+                                    Duration="0:0:0.4"/>
+                                <DoubleAnimation
+                                    Name="friendGridOP"
+                                    Storyboard.TargetName="friendGrid"
+                                    Storyboard.TargetProperty="Opacity" From="0" To="1"
+                                    Duration="0:0:0.4"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                        <BeginStoryboard>
+                            <Storyboard x:Name="hideFriends">
+                                <DoubleAnimation
+                                    Storyboard.TargetName="friendGrid"
+                                    Storyboard.TargetProperty="Opacity" From="1" To="0"
+                                    Duration="0:0:0.4"/>
+                                <DoubleAnimation
+                                    Name="roomGridOp"
+                                    Storyboard.TargetName="roomSelectGrid"
+                                    Storyboard.TargetProperty="Opacity" From="0" To="1"
+                                    Duration="0:0:0.4"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
+            <Grid x:Name="friendGrid" HorizontalAlignment="Left" Height="308" Margin="153,15,0,0" VerticalAlignment="Top" Width="342" Opacity="0" Visibility="Hidden">
+                <ListView x:Name="friendListView" HorizontalAlignment="Left" Height="254" Margin="23,10,0,0" VerticalAlignment="Top" Width="249" MouseDoubleClick="friendListView_MouseDoubleClick" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                    <ListView.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem x:Name="addFriend" Header="Add" Click="addFriend_Click" />
+                            <MenuItem x:Name="deleteFriend" Header="Delete" Click="deleteFriend_Click" />
+                            <Separator/>
+                        </ContextMenu>
+                    </ListView.ContextMenu>
+                    <ListView.View>
+                        <GridView AllowsColumnReorder="False">
+                            <GridViewColumn>
+                                <GridViewColumnHeader x:Name="friendsHeader" Width="247" Content="Friends" IsEnabled="False" BorderThickness="0"/>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

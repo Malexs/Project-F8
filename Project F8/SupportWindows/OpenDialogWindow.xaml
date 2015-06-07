@@ -1,0 +1,10 @@
+﻿<Window x:Class="Project_F8.SupportWindows.OpenDialogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Open Dialog" Height="137" Width="240" Activated="Window_Activated" Closing="Window_Closing">
+    <Grid>
+        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" PreviewTextInput="loginBox_PreviewTextInput"/>
+        <Button x:Name="openDialogButton" Content="Open" HorizontalAlignment="Left" Height="29" Margin="52,56,0,0" VerticalAlignment="Top" Width="126" Click="openDialogButton_Click" IsDefault="True"/>
+
+    </Grid>
+</Window>

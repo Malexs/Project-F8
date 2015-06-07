@@ -1,0 +1,19 @@
+﻿<Window x:Name="addWindow" x:Class="Project_F8.AddindWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add Window" Height="300" Width="482.925" ResizeMode="NoResize" Closing="addWindow_Closing">
+    <Grid>
+        <Grid HorizontalAlignment="Left" Height="83" Margin="17,88,0,0" VerticalAlignment="Top" Width="113">
+            <RadioButton x:Name="folderRadioButton" Content="Folder" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="21" Width="69" IsChecked="True"/>
+            <RadioButton x:Name="roomRadioButton" Content="Room" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" Height="21" Width="69"/>
+            <RadioButton x:Name="folderRoomsRadioButton" Content="Folder(Rooms)" HorizontalAlignment="Left" Margin="10,34,-10,0" VerticalAlignment="Top" Height="21" Width="96"/>
+        </Grid>
+        <Label x:Name="nameLabel" Content="Name" HorizontalAlignment="Left" Margin="23,26,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="discriptionLabel" Content="Discription" HorizontalAlignment="Left" Margin="23,57,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="nameTextBox" HorizontalAlignment="Left" Height="23" Margin="135,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="306" UndoLimit="16" PreviewTextInput="loginBox_PreviewTextInput"/>
+        <TextBox x:Name="discriptionTextBox" HorizontalAlignment="Left" Height="123" Margin="135,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="306" UndoLimit="128" PreviewTextInput="loginBox_PreviewTextInput"/>
+        <Button x:Name="addButton" Content="Add" HorizontalAlignment="Left" Height="30" Margin="275,201,0,0" VerticalAlignment="Top" Width="70" Click="addButton_Click"/>
+        <Button x:Name="cancelButton" Content="Cancel" HorizontalAlignment="Left" Height="30" Margin="363,201,0,0" VerticalAlignment="Top" Width="70" Click="cancelButton_Click"/>
+
+    </Grid>
+</Window>

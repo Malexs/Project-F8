@@ -1,0 +1,43 @@
+﻿<Window x:Class="Project_F8.SupportWindows.RoomWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="RoomWindow" Height="427" Width="827" ResizeMode="NoResize" Closing="Window_Closing">
+    <Grid>
+        <ListView x:Name="postsBox" HorizontalAlignment="Left" Height="276" Margin="10,10,0,0" VerticalAlignment="Top" Width="586" IsSynchronizedWithCurrentItem="True" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionMode="Single" AlternationCount="1" IsManipulationEnabled="True">
+            <ListView.View>
+                <GridView AllowsColumnReorder="False">
+                    <GridViewColumn>
+                        <GridViewColumnHeader x:Name="header" Width="582" Content="Messages" IsEnabled="False" BorderThickness="0"/>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label x:Name="template" Content="Label" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Opacity="0"/>
+        <Button x:Name="refreshButton" Content="Refresh" HorizontalAlignment="Left" Margin="654,220,0,0" VerticalAlignment="Top" Width="122" Height="41" Click="refreshButton_Click"/>
+        <Label x:Name="pageLabel" Content="Page:" HorizontalAlignment="Left" Margin="653,266,0,0" VerticalAlignment="Top" Width="40"/>
+        <Label x:Name="currPageLabel" Content="" HorizontalAlignment="Left" Margin="693,266,0,0" VerticalAlignment="Top" Width="29"/>
+        <Label Content="/" HorizontalAlignment="Left" Margin="716,265,0,0" VerticalAlignment="Top" Width="20"/>
+        <Label x:Name="maxPageLabel" Content="" HorizontalAlignment="Left" Margin="722,266,0,0" VerticalAlignment="Top" Width="29"/>
+        <Button x:Name="nextPageButton" Content="&gt;" HorizontalAlignment="Left" Margin="718,291,0,0" VerticalAlignment="Top" Width="25" Height="23" Click="nextPageButton_Click"/>
+        <Button x:Name="prevPageButton" Content="&lt;" HorizontalAlignment="Left" Margin="686,291,0,0" VerticalAlignment="Top" Width="25" Height="23" Click="prevPageButton_Click"/>
+        <Button x:Name="firstPageButton" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="654,291,0,0" VerticalAlignment="Top" Width="25" Height="23" Click="firstPageButton_Click"/>
+        <Button x:Name="lastPageButton" Content="&gt;&gt;" HorizontalAlignment="Left" Margin="750,291,0,0" VerticalAlignment="Top" Width="25" Height="23" Click="lastPageButton_Click"/>
+        <TextBox x:Name="messageBox" HorizontalAlignment="Left" Height="83" Margin="10,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="586" PreviewTextInput="messageBox_PreviewTextInput"/>
+        <Button x:Name="sendMessageButton" Content="Send" HorizontalAlignment="Left" Height="41" Margin="654,333,0,0" VerticalAlignment="Top" Width="122" Click="sendMessageButton_Click" IsDefault="True"/>
+        <ListView x:Name="roomList" HorizontalAlignment="Left" Height="205" Margin="610,10,0,0" VerticalAlignment="Top" Width="190" MouseDoubleClick="roomList_MouseDoubleClick" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="closeItem" Header="Close" Click="CloseMenuItem_Click" IsEnabled="True"/>
+                    <Separator></Separator>
+                </ContextMenu>
+            </ListView.ContextMenu>
+            <ListView.View>
+                <GridView AllowsColumnReorder="False">
+                    <GridViewColumn>
+                        <GridViewColumnHeader x:Name="roomHeader" Width="193" Content="Rooms" IsEnabled="False" BorderThickness="0"/>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
